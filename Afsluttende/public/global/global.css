@@ -39,6 +39,9 @@ nav{
     justify-content: center;
     align-items: center;
 }
+.title-head:hover{
+    opacity: 50%;
+}
 
 main {
     background-color: var(--dark);

@@ -1,3 +1,18 @@
+.home-div{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 100%;
+    max-width: 550px;
+    background: var(--dark);
+    padding: 30px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
 .activity-button, .members-button, .finetypes-button, .settings-button {
     background-color: var(--secondary);
     border: none;
@@ -11,20 +26,65 @@
     margin-bottom: 5px;
 }
 
-.home-div{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 550px;
-    background: var(--dark);
-    padding: 30px;
+.deposit-btn, .withdraw-btn, .assign-fine-btn{
+    width: 20%;
+    margin-left: 10px;
+    background-color: var(--secondary);
+    border: none;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 5px;
+    color: var(--light);
+    cursor: pointer;
+    text-transform: uppercase;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.activity-button:hover, .members-button:hover, .finetypes-button:hover, .settings-button:hover, .deposit-btn:hover, .withdraw-btn:hover, .assign-fine-btn:hover{
+    opacity: 50%;
 }
 
 .home-buttons{
     text-align: center;
+}
+
+.header-row, .money-btn-row {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.team-name{
+    color: var(--light);
+    margin-top: 15px;
+}
+
+.team-logo{
+    margin-right: 25px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+}
+
+.overview {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.deposits{
+    opacity: 50%;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fines-assigned{
+    font-size: 32px;
+    margin-bottom: -5px;
 }
