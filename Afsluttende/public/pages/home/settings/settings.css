@@ -1,0 +1,40 @@
+.payment, .monthly, .news, .feedback, .log-out{
+    background-color: var(--secondary);
+    border: none;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: var(--light);
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 60%;
+    margin-bottom: 5px;
+}
+
+.button-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 5px;
+   
+}
+
+.button-wrapper{
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.page-title{
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
