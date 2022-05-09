@@ -1,4 +1,4 @@
-.payment, .monthly, .news, .feedback, .log-out{
+.payment, .monthly, .news, .feedback, .valuta, .change-admin-password, .change-member-password, .new-season, .export-team-info, .log-out{
     background-color: var(--secondary);
     border: none;
     text-align: center;
@@ -7,17 +7,15 @@
     color: var(--light);
     cursor: pointer;
     text-transform: uppercase;
-    width: 60%;
+    width: 25%;
     margin-bottom: 5px;
 }
 
 .button-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
     padding: 30px;
     border-radius: 5px;
    
@@ -29,6 +27,12 @@
     margin-bottom: 10px;
 }
 
+.services-div, .team-settings-div, .other-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .page-title{
     color: var(--primary);
     font-size: 20px;
@@ -37,4 +41,19 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
+}
+
+.settings-sort{
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.log-out{
+    color: rgb(227, 22, 22);
 }
