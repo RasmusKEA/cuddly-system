@@ -11,6 +11,7 @@ const { urlencoded } = require("express");
 const loginPage = createPage('frontpage/login/login.html')
 const homePage = createPage('home/home.html')
 const settingsPage = createPage('home/settings/settings.html')
+const registerPage = createPage('frontpage/register/register.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -22,6 +23,10 @@ app.get('/home', (req, res) => {
 
 app.get('/settings', (req, res) =>{
   res.send(settingsPage);
+})
+
+app.get('/register', (req, res) => {
+  res.send(registerPage);
 })
 
 app.listen(port, () => {

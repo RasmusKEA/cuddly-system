@@ -1,0 +1,72 @@
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    background: var(--dark);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #5757574d;
+  }
+  
+  .wrapper .title h1, .title p{
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .input-fields{
+    margin-right: 4%;
+  }
+
+  .input::placeholder{
+    opacity: 60%;
+  }
+  
+  .input-fields{
+    width: 48%;
+  }
+  
+  .input-fields .input{
+    margin: 10px 0;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid var(--secondary);
+    padding: 10px;
+    color: var(--light);
+    background-color: var(--secondary);
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: var(--light);
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: var(--light);
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: var(--light);
+  }
+  
+  .send-button {
+      background-color: var(--secondary);
+      border: none;
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px;
+      color: var(--light);
+      cursor: pointer;
+      text-transform: uppercase;
+      width: 100%;
+  }
