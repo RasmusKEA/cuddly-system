@@ -20,12 +20,15 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
 }).then(json => {
     if(json.teamName === null){
         document.getElementById("team-name").innerHTML = "Team name"
-    }
-    if(json.teamLogo === null){
-        document.getElementById("team-logo").src = "https://cdn-icons-png.flaticon.com/512/171/171561.png"    
+    }else{
+        document.getElementById("team-name").innerHTML = json.teamName
     }
 
-    console.log(json)
+    if(json.teamLogo === null){
+        document.getElementById("team-logo").setAttribute("src", "https://cdn-icons-png.flaticon.com/512/171/171561.png")    
+    }else{
+        document.getElementById("team-logo").src = json.teamLogo
+    }
 
     if(session.role !== "admin"){
         document.getElementById("withdraw-btn").style.display = "none"
@@ -36,8 +39,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
         document.getElementById("deposit-btn").style.display = "block"
     }
 
-    document.getElementById("team-name").innerHTML = json.teamName
-    document.getElementById("team-logo").src = json.teamLogo
+    
 });
 
 fetch(`http://192.168.0.107:5000/api/Member`, {
@@ -55,9 +57,9 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
     }
     return res.json()
 }).then(res => {
-    if (res.members === undefined || res.members.length === 0) return 0
+
     let deposits = res.members.reduce((prev, curr) => prev + curr.deposits, 0)
     let fines = res.members.reduce((prev, curr) => prev + curr.fines, 0)
-    document.getElementById("fines-assigned").innerHTML = `${fines} ${session.currency}`
-    document.getElementById("deposits").innerHTML = `${deposits} ${session.currency} already paid`
+    document.getElementById("fines-assigned").innerHTML = `${fines ? fines : 0} ${session.currency ? session.fines : "DKK"}`
+    document.getElementById("deposits").innerHTML = `${deposits ? deposits : 0} ${session.currency ?  session.fines : "DKK"} already paid`
 });
