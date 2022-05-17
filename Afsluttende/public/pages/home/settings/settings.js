@@ -9,3 +9,11 @@ if(jsonSes.role !== "admin"){
     document.getElementById("export-team-info").style.display = "none"
     document.getElementById("team-settings").style.display = "none"
 }
+
+
+document.getElementById("log-out").onclick = function() {logout()};
+function logout(){
+    localStorage.removeItem("session")
+    window.location = "/"
+
+}
