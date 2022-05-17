@@ -1,0 +1,70 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    padding: 30px;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.horizontal-div{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    max-width: 40%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    
+}
+
+.vertical-div{
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    width: 40%;
+    border-radius: 5px;
+    height: auto;
+}
+
+.trans-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.activity-btn{
+    background-color: var(--secondary);
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    color: var(--light);
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 15px;
+    font-size: 100%;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+.activity-btn:hover{
+    opacity: 50%;
+}
+
+.activity-btn:active, .activity-btn:focus {
+    opacity: 50%;
+}

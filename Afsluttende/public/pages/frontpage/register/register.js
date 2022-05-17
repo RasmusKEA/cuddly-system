@@ -25,9 +25,8 @@ function createUser() {
             localStorage.setItem("session", JSON.stringify(res))
         });
     }else{
-        window.alert("You need to fill out all fields before trying to login")
+        window.alert("You need to fill out all fields in order to register")
     }
-
 }  
 
 document.getElementById("send-button").addEventListener("click", createUser)

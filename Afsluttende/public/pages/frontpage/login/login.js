@@ -13,7 +13,6 @@ function loginUser() {
                 deviceModel: "Browser",
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value
-
             })  
         }).then(res => {
             if(res.status !== 200 ){

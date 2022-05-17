@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.0",
+    "moment": "^2.29.3",
+    "moment-es6": "^1.0.0",
     "nodemon": "^2.0.16"
   }
 }

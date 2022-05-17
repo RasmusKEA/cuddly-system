@@ -37,9 +37,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
 
     if(session.role !== "admin" && json.mobilePayActive === true){
         document.getElementById("deposit-btn").style.display = "block"
-    }
-
-    
+    }    
 });
 
 fetch(`http://192.168.0.107:5000/api/Member`, {
@@ -53,13 +51,23 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
         localStorage.removeItem("session")
         window.location = "/"
         throw Error("Unauthorized")
-        
     }
     return res.json()
 }).then(res => {
-
     let deposits = res.members.reduce((prev, curr) => prev + curr.deposits, 0)
     let fines = res.members.reduce((prev, curr) => prev + curr.fines, 0)
-    document.getElementById("fines-assigned").innerHTML = `${fines ? fines : 0} ${session.currency ? session.fines : "DKK"}`
-    document.getElementById("deposits").innerHTML = `${deposits ? deposits : 0} ${session.currency ?  session.fines : "DKK"} already paid`
+    document.getElementById("fines-assigned").innerHTML = `${fines ? fines : 0} ${session.currency ? session.currency : "DKK"}`
+    document.getElementById("deposits").innerHTML = `${deposits ? deposits : 0} ${session.currency ?  session.currency : "DKK"} already paid`
+    console.log(session)
 });
+
+function settingsButton() {
+    window.location = "/settings"
+}
+
+function activityButton(){
+    window.location = "/activity"
+}
+
+document.getElementById("settings-button").addEventListener("click", settingsButton)
+document.getElementById("activity-button").addEventListener("click", activityButton)

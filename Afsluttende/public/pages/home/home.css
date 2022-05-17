@@ -1,3 +1,6 @@
+main{
+    background: var(--dark);
+}
 .home-div{
     display: flex;
     justify-content: center;
@@ -7,7 +10,6 @@
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 550px;
-    background: var(--dark);
     padding: 30px;
     border-radius: 5px;
     flex-direction: column;
@@ -87,3 +89,5 @@
     font-size: 32px;
     margin-bottom: -5px;
 }
+
+  
