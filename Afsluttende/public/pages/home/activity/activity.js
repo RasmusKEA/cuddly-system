@@ -73,6 +73,7 @@ function populateActivity(data) {
     data.forEach(transaction => {
         let transWrap = document.createElement("div")
         transWrap.className = "trans-wrap"
+        transWrap.id = `${transaction.id}-div`
 
         let left = document.createElement("div")
         left.className = "left"
@@ -106,12 +107,33 @@ function populateActivity(data) {
             rightSpan.style.color = "#d0c77c"
         }
 
-        right.append(rightSpan)
-        right.append(rightSpan1)
+        let spanDiv = document.createElement("div");
+
+        let deleteBtn = document.createElement("button")
+        deleteBtn.className = "delete-btn"
+        deleteBtn.id = transaction.id
+
+        let deleteImg = document.createElement("img")
+        deleteImg.className = "delete-img"
+        deleteImg.setAttribute("src", "./global/delete.png")
+
+        deleteBtn.append(deleteImg)
+
+        spanDiv.append(rightSpan)
+        spanDiv.append(rightSpan1)
+
+        right.append(spanDiv)
+        right.append(deleteBtn)
 
         transWrap.append(left)
         transWrap.append(right)
         transactionRow.appendChild(transWrap)
+    })
+
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener('click', event => {
+            deleteTransaction(btn.id)
+        })
     })
 }
 
@@ -119,4 +141,20 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+function deleteTransaction(id) {
+        fetch(`http://192.168.0.107:5000/api/transaction/${id}`, {
+            method: "DELETE",
+            headers: { 
+                'Authorization': `Bearer ${session.accessToken}`,
+                "Content-type": "application/json; charset=UTF-8" }
+        }).then(res => {
+            if(res.status !== 200 ){
+                //toast here
+                throw Error("An error occured")
+            }else if(res.status === 200){
+                removeAllChildNodes(document.getElementById(`${id}-div`))
+            }
+        })
 }

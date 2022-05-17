@@ -45,6 +45,8 @@
 
 .right{
     text-align: right;
+    display: flex;
+    flex-direction: row;
 }
 
 .activity-btn{
@@ -67,4 +69,13 @@
 
 .activity-btn:active, .activity-btn:focus {
     opacity: 50%;
+}
+
+.delete-btn{
+    border: none;
+}
+
+.delete-img{
+    width: 24px;
+    height: 24px;
 }
