@@ -13,6 +13,8 @@ const homePage = createPage('home/home.html')
 const settingsPage = createPage('home/settings/settings.html')
 const registerPage = createPage('frontpage/register/register.html')
 const activityPage = createPage('home/activity/activity.html')
+const depositPage = createPage('home/deposit/deposit.html')
+const assignPage = createPage('home/assign/assign.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -32,6 +34,14 @@ app.get('/register', (req, res) => {
 
 app.get('/activity', (req, res) => {
   res.send(activityPage);
+})
+
+app.get('/deposit', (req, res) => {
+  res.send(depositPage)
+})
+
+app.get('/assign', (req, res) => {
+  res.send(assignPage)
 })
 
 app.listen(port, () => {

@@ -61,13 +61,9 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
     console.log(session)
 });
 
-function settingsButton() {
-    window.location = "/settings"
+document.getElementById("settings-button").onclick = function(){window.location = "/settings"}
+document.getElementById("activity-button").onclick = function(){window.location = "/activity"}
+document.getElementById('deposit-btn').onclick = function(){window.location = '/deposit'}
+document.getElementById('assign-btn').onclick = function(){
+    window.location = '/assign'
 }
-
-function activityButton(){
-    window.location = "/activity"
-}
-
-document.getElementById("settings-button").addEventListener("click", settingsButton)
-document.getElementById("activity-button").addEventListener("click", activityButton)

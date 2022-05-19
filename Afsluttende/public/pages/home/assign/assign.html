@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./pages/home/assign/assign.css">
+    <title>PTH | Assign fine</title>
+</head>
+<body>
+    <main>
+        <div class="wrapper">Select members who have made a deposit, as well as amount, deposit reason and date</div>
+        <div class="wrapper">
+            <div class="left" id="left">
+                <label class="container">All
+                    <input type="checkbox" id="select-all">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="right">
+                    <input type="text" class="input" id="deposit-name">
+                    <input type="date" name="date" id="date" class="input">
+                    <input placeholder="Amount" onfocus="this.type='number';" class="input" id="amount">
+            </div>
+        </div>
+        <div class="submit-btn">
+            <button class="submit" id="confirm-btn">Confirm</button>
+        </div>
+    </main>
+    <script src="./pages/home/assign/assign.js"></script>
+</body>
+</html>
