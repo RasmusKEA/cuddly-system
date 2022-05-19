@@ -32,6 +32,7 @@ function populateCheckbox(data) {
 
         let input = document.createElement('input')
         input.type = 'checkbox'
+        input.className = "select-all-members"
         input.id = element.id
         label.append(input)
 
@@ -58,14 +59,21 @@ document.getElementById('confirm-btn').onclick = function(){
             checked.push(checkbox.id)
         }
     }
-    
+
     checked.forEach(member => {
         postDeposit(member)
-    });
-    
+    }); 
 }
 
 function postDeposit(member){
+    let test = {
+        amount: document.getElementById('amount').value,
+                date: document.getElementById('date').value,
+                name: document.getElementById('deposit-name').value,
+                transactionType: "deposit",
+                memberId: member
+    }
+    console.log(test)
 
     fetch("http://192.168.0.107:5000/api/Transaction", {
             method: "POST",
@@ -87,7 +95,7 @@ function postDeposit(member){
                 //toast here
                 throw Error("Incorrect login credentials")
             }else if(res.status === 200){
-                window.location = '/home'
+                //toast confirm here
             }
             return res.json()
         })

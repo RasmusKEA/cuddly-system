@@ -7,21 +7,29 @@
 </head>
 <body>
     <main>
-        <div class="wrapper">Select members who have made a deposit, as well as amount, deposit reason and date</div>
+        <div class="wrapper text">Select which members to fine, which fines they shall receive and the dates of these</div>
         <div class="wrapper">
             <div class="left" id="left">
+                <div class="header">
+                    <p>Select members</p>
+                </div>
                 <label class="container">All
-                    <input type="checkbox" id="select-all">
+                    <input type="checkbox" id="select-all-members">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <div class="right">
-                    <input type="text" class="input" id="deposit-name">
-                    <input type="date" name="date" id="date" class="input">
-                    <input placeholder="Amount" onfocus="this.type='number';" class="input" id="amount">
+            <div class="right" id="right">
+                <div class="header">
+                    <p>Select fines</p>
+                </div>
+                    <label class="container">All
+                        <input type="checkbox" id="select-all-fines">
+                        <span class="checkmark"></span>
+                    </label>
             </div>
         </div>
-        <div class="submit-btn">
+        <div class="submit-div">
+            <input type="date" name="date" id="date" class="input">
             <button class="submit" id="confirm-btn">Confirm</button>
         </div>
     </main>

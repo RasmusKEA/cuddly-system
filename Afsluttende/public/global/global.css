@@ -47,3 +47,7 @@ main {
     background-color: var(--dark);
     min-height: calc(100vh - 150px);
 }
+
+button:hover{
+    opacity: 50%;
+}

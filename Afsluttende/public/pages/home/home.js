@@ -64,6 +64,4 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
 document.getElementById("settings-button").onclick = function(){window.location = "/settings"}
 document.getElementById("activity-button").onclick = function(){window.location = "/activity"}
 document.getElementById('deposit-btn').onclick = function(){window.location = '/deposit'}
-document.getElementById('assign-btn').onclick = function(){
-    window.location = '/assign'
-}
+document.getElementById('assign-btn').onclick = function(){window.location = '/assign'}
