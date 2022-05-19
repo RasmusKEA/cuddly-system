@@ -10,23 +10,37 @@
        <div class="wrapper-div">
        <h3 class="page-title">Payment Solution</h3>
        <div class="number-div">
-           <form action="/action_page.php" method="get" class="form">
-               <div class="radio-div">
-                <input type="radio" name="mobilepay" id="mobilepay">
-                <label for="mobilepay" class="radio-label">Mobilepay</label>
-               
-            </div>
-            <div class="radio-div1">
-                <input type="radio" name="mobilepay" id="mobilepaybox">
-                <label for="mobilepaybox" class="radio-label">MobilepayBox</label>
-               
-            </div>
-               <label name="phonenumber">Phone number</label>
+           <form>
+        <label name="phonenumber">Phone number</label>
+               <div class="countrycode">
+              <select name="phonecode" id="countrycode" class="custom-select">
+                <option value="+45">+45</option>
+                <option value="+46">+46</option>
+                <option value="+47">+47</option>
+                </select>
                <input type="text" name="phonenumber" id="phonenumber" placeholder="Enter phone number" class="form-field">
-               <input type="submit" value="Save" name="submit" id="submit" class="submit">
-           </form>
+               </div>
        </div>
+       <input type="submit" value="Save" name="submit" id="submit" class="submit">
+    </form>
        <h2 class="under-title">Payment Services</h2>
+       <div class="payment-options">
+           <div class="mobilepaydiv">
+        <img src="./global/mobilepay.avif" class="mobilepay-logo" id="mobilepay-logo">
+        <label class="switch">
+        <input type="checkbox" id="checkbox" onclick="checkCheckbox()">
+        <span class="slider round"></span>
+    </label>
+           </div>
+           <div class="swishdiv">
+        <img src="./global/swishlogo.jpeg" class="swish-logo" id="swish-logo">
+        <p>Coming soon</p>
+    </div>
+    <div class="vippsdiv">
+        <img src="./global/Vipps.png.crdownload" class="vipps-logo" id="vipps-logo">
+        <p>Coming soon</p>
+    </div>
+       </div>
        </div>
     </main>
     <script src="./pages/home/settings/services/payment/payment.js"></script>
