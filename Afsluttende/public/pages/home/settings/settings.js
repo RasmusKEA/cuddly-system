@@ -17,3 +17,8 @@ function logout(){
     window.location = "/"
 
 }
+
+document.getElementById("payment").onclick = function() {payment()}
+function payment(){
+    window.location = "/payment"
+}
