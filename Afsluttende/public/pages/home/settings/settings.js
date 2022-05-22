@@ -22,3 +22,8 @@ document.getElementById("payment").onclick = function() {payment()}
 function payment(){
     window.location = "/payment"
 }
+
+document.getElementById("monthly").onclick = function() {monthly()}
+function monthly(){
+    window.location = "/monthly"
+}
