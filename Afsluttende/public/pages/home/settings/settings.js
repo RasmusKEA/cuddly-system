@@ -1,7 +1,10 @@
-let session = localStorage.getItem("session")
-let jsonSes = JSON.parse(session)
+if(localStorage.getItem("session") === null){
+    window.location = "/"
+}
 
-if(jsonSes.role !== "admin"){
+let session = JSON.parse(localStorage.getItem("session"))
+
+if(session.role !== "admin"){
     document.getElementById("currency").style.display = "none"
     document.getElementById("change-admin-password").style.display = "none"
     document.getElementById("change-member-password").style.display = "none"
@@ -26,4 +29,46 @@ function payment(){
 document.getElementById("monthly").onclick = function() {monthly()}
 function monthly(){
     window.location = "/monthly"
+}
+
+document.getElementById("news").onclick = function() {news()}
+    function news(){
+        window.location ="/news"
+    }
+
+
+document.getElementById("new-season").onclick = function() {newSeason()}
+function newSeason(){
+console.log(session.accessToken)
+    cuteAlert({
+        type: 'question',
+        title: 'New season',
+    message: "Are you sure you want to reset the fine box? Assigned fines and deposits will be deleted, but saves players and fine types. This can't be undone!",
+        confirmText: "I am sure!",
+        cancelText: "Do not reset"
+    }).then((e) => {
+        if(e == "confirm"){
+            fetch("http://192.168.0.107:5000/api/User/reset", {
+            method: "POST",
+            headers: { 'Authorization': `Bearer ${session.accessToken}`,
+                "Content-type": "application/json; charset=UTF-8" }   
+        }).then(res => {
+            if(res.status !== 200 ){
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Something went wrong",
+                    timer: 5000
+                  })
+            }else if(res.status === 200){
+                cuteToast({
+                    type: 'success', // or 'info', 'error', 'warning',
+                    title: "Success",
+                    message: "Season reset",
+                    timer: 5000
+                  })
+            }
+        })
+    }
+    })
 }
