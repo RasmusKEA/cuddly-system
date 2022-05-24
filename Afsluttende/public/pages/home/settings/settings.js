@@ -36,6 +36,49 @@ document.getElementById("news").onclick = function() {news()}
         window.location ="/news"
     }
 
+    document.getElementById("feedback").onclick = function() {feedback()}
+    function feedback(){
+        window.location ="/feedback"
+    }
+
+    document.getElementById("export-team-info").onclick = function(){exportData()}
+    function exportData(){
+        console.log(session.accessToken)
+        cuteAlert({
+            type: 'question',
+            title: 'Export file',
+        message: "You can export the team's data to and receive it in another format than what you see on the app. You will recieve the exported file to your email",
+            confirmText: "Send the file!",
+            cancelText: "Do not send"
+        }).then((e) => {
+            if(e == "confirm"){
+                fetch("http://192.168.0.107:5000/api/User/export", {
+                method: "POST",
+                headers: { 'Authorization': `Bearer ${session.accessToken}`,
+                    "Content-type": "application/json; charset=UTF-8" }   
+            }).then(res => {
+                if(res.status !== 200 ){
+                    cuteToast({
+                        type: 'warning', // or 'info', 'error', 'warning',
+                        title: "Warning",
+                        message: "Something went wrong",
+                        timer: 5000
+                      })
+                }else if(res.status === 200){
+                    cuteToast({
+                        type: 'success', // or 'info', 'error', 'warning',
+                        title: "Success",
+                        message: "Email sent",
+                        timer: 5000
+                      })
+                }
+            })
+        }
+        })
+    }
+
+        
+
 
 document.getElementById("new-season").onclick = function() {newSeason()}
 function newSeason(){
