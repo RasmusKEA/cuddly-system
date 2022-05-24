@@ -28,6 +28,11 @@
     margin-top: 5px;
 }
 
+.member-div:hover{
+    opacity: 50%;
+    cursor: pointer;
+}
+
 .inner-left{
     display: flex;
     flex-direction: column;

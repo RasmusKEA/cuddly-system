@@ -20,6 +20,7 @@ const monthlyPage = createPage('home/settings/services/monthly/monthly.html')
 const withdrawPage = createPage('home/withdraw/withdraw.html')
 const membersPage = createPage('home/members/members.html')
 const newsPage = createPage('home/settings/other/news/news.html')
+const finetypesPage = createPage('home/finetypes/finetypes.html')
 
 
 app.get('/', (req, res) => {
@@ -69,6 +70,10 @@ app.get('/members', (req, res) =>{
 
 app.get('/news', (req, res) => {
   res.send(newsPage)
+})
+
+app.get('/finetypes', (req, res) => {
+  res.send(finetypesPage)
 })
 
 app.listen(port, () => {

@@ -67,4 +67,4 @@ document.getElementById('deposit-btn').onclick = function(){window.location = '/
 document.getElementById('assign-btn').onclick = function(){window.location = '/assign'}
 document.getElementById('withdraw-btn').onclick = function(){window.location = '/withdraw'}
 document.getElementById('members-button').onclick = function(){window.location = '/members'}
-document.getElementById('finetypes-btn').onclick = function(){window.location = '/finetypes'}
+document.getElementById('finetypes-button').onclick = function(){window.location = '/finetypes'}

@@ -4,7 +4,6 @@ if(localStorage.getItem("session") === null){
 let session = JSON.parse(localStorage.getItem("session"))
 
 document.getElementById('confirm-btn').onclick = function(){
-    console.log('test')
     fetch("http://192.168.0.107:5000/api/Transaction/withdraw", {
         method: "POST",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
