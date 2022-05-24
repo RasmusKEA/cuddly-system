@@ -20,7 +20,7 @@ const monthlyPage = createPage('home/settings/services/monthly/monthly.html')
 const withdrawPage = createPage('home/withdraw/withdraw.html')
 const membersPage = createPage('home/members/members.html')
 const newsPage = createPage('home/settings/other/news/news.html')
-
+const feedbackPage = createPage('home/settings/other/feedback/feedback.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -69,6 +69,10 @@ app.get('/members', (req, res) =>{
 
 app.get('/news', (req, res) => {
   res.send(newsPage)
+})
+
+app.get('/feedback', (req, res) => {
+  res.send(feedbackPage)
 })
 
 app.listen(port, () => {

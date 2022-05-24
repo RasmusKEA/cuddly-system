@@ -1,0 +1,87 @@
+.grade-button{
+    background-color: var(--secondary);
+    border: none;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: var(--light);
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.page-title{
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+.wrapper-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+    padding: 30px;
+    border-radius: 5px;
+
+}
+
+
+.submit{
+margin-top: 10px;
+background-color: #40b930;
+border: none;
+text-align: center;
+border-radius: 5px;
+color: var(--light);
+cursor: pointer;
+height:40px; 
+width:200px;
+}
+
+.grade-button:active, .grade-button:focus {
+    opacity: 50%;
+}
+
+.highlight{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.under-text{ 
+    color:darkgray; 
+
+}
+
+.input{
+    margin-top: 10px;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid var(--secondary);
+    padding: 10px;
+    color: var(--light);
+    background-color: var(--secondary);
+    border-radius: 5px;
+    width: 75%;
+}
+
+.hide{
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
