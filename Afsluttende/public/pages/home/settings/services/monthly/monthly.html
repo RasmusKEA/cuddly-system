@@ -7,21 +7,31 @@
 </head>
 <body>
     <main> 
+        <div class="all">
+        <h3 class="page-title">Monthly fine</h3>
+        <p></p>Specify the date for the first time the fine should be assigned</p>
        <div class="wrapper-div">
-       <h3 class="page-title">Monthly fine</h3>
-       
-       <div class="right">
-        <input type="text" class="input-field">
-        <input type="text" class="input-field1">
-
-        <div class="datediv">
-        <p class="text">Specify the date for the first time the fine should be assigned</p>
-        <input type="date" id="date" name="date" class="date">
+        
+        <div class="left" id="left">
         </div>
-        <input type="submit" id="submit" class="submit" value="Add">
-       </div>
+
+       <div class="right">
+        <input type="text" class="input-field" placeholder="0 kr." id="amount">
+        <input type="text" class="input-field1" placeholder="Name" id="name">
+        <input type="date" id="date" name="date" class="date">
+        <div class="horisontal-button">
+            <label class="switch">
+                <input type="checkbox" id="checkbox">
+                <span class="slider round"></span>
+            </label>
+        <input type="submit" id="submit" class="submit" value="Add"/>
+        </div>
+        </div>
+            
+        </div>
     </div>
     </main>
+    <script type = "text/JavaScript" src = "https://MomentJS.com/downloads/moment.js"></script>
     <script src="./pages/home/settings/services/monthly/monthly.js"></script>
 </body>
 </html>
