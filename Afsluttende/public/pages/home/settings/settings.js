@@ -31,13 +31,19 @@ function monthly(){
     window.location = "/monthly"
 }
 
+document.getElementById("news").onclick = function() {news()}
+    function news(){
+        window.location ="/news"
+    }
+
+
 document.getElementById("new-season").onclick = function() {newSeason()}
 function newSeason(){
 console.log(session.accessToken)
     cuteAlert({
         type: 'question',
         title: 'New season',
-        message: 'Are you sure blah blah',
+    message: "Are you sure you want to reset the fine box? Assigned fines and deposits will be deleted, but saves players and fine types. This can't be undone!",
         confirmText: "I am sure!",
         cancelText: "Do not reset"
     }).then((e) => {
