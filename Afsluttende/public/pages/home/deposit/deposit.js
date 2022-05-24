@@ -1,5 +1,11 @@
 if(localStorage.getItem("session") === null){
     window.location = "/"
+    cuteToast({
+        type: 'error', // or 'info', 'error', 'warning',
+        title: "Error",
+        message: "You do not have access to this page",
+        timer: 5000
+      })
 }
 let session = JSON.parse(localStorage.getItem("session"))
 
@@ -10,10 +16,14 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
         "Content-type": "application/json; charset=UTF-8" },  
 }).then(res => {
     if(res.status !== 200 ){
-        //toast here
         localStorage.removeItem("session")
         window.location = "/"
-        throw Error("Unauthorized")
+        cuteToast({
+            type: 'error', // or 'info', 'error', 'warning',
+            title: "Error",
+            message: "You do not have access to this page",
+            timer: 5000
+          })
     }
     return res.json()
 }).then(res => {
@@ -54,48 +64,49 @@ document.getElementById('select-all').onclick = function() {
 document.getElementById('confirm-btn').onclick = function(){
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let checked = [];
+
     for (let checkbox of checkboxes) {
         if(checkbox.checked && checkbox.id !== "select-all"){
             checked.push(checkbox.id)
         }
     }
 
-    checked.forEach(member => {
-        postDeposit(member)
-    }); 
-}
-
-function postDeposit(member){
-    let test = {
-        amount: document.getElementById('amount').value,
-                date: document.getElementById('date').value,
-                name: document.getElementById('deposit-name').value,
-                transactionType: "deposit",
-                memberId: member
-    }
-    console.log(test)
-
-    fetch("http://192.168.0.107:5000/api/Transaction", {
-            method: "POST",
-            headers: { 'Authorization': `Bearer ${session.accessToken}`,
-                "Content-type": "application/json; charset=UTF-8" },
-            body: JSON.stringify({
-                transactions : [
-            {
+    if(checkboxes.length !== 0){
+        let members = []
+        checked.forEach(member => {
+            members.push({
                 amount: document.getElementById('amount').value,
                 date: document.getElementById('date').value,
                 name: document.getElementById('deposit-name').value,
                 transactionType: "deposit",
                 memberId: member
-            }
-            ]
-            })  
+            })
+        }); 
+        postDeposit(members)
+    }
+}
+
+function postDeposit(members){
+    fetch("http://192.168.0.107:5000/api/Transaction", {
+            method: "POST",
+            headers: { 'Authorization': `Bearer ${session.accessToken}`,
+                "Content-type": "application/json; charset=UTF-8" },
+            body: JSON.stringify({transactions: members})   
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("Incorrect login credentials")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Something went wrong",
+                    timer: 5000
+                  })
             }else if(res.status === 200){
-                //toast confirm here
+                cuteToast({
+                    type: 'success', // or 'info', 'error', 'warning',
+                    title: "Success",
+                    message: "Deposits registered",
+                    timer: 5000
+                  })
             }
             return res.json()
         })

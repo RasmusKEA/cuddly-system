@@ -22,7 +22,6 @@
 }
 
 .button-wrapper{
-    color: var(--primary);
     text-align: center;
     margin-bottom: 10px;
 }
@@ -34,7 +33,6 @@
 }
 
 .page-title{
-    color: var(--primary);
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 2px;
@@ -44,7 +42,6 @@
 }
 
 .settings-sort{
-    color: var(--primary);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 2px;

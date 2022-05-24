@@ -1,5 +1,11 @@
 if(localStorage.getItem("session") === null){
     window.location = "/"
+    cuteToast({
+        type: 'error', // or 'info', 'error', 'warning',
+        title: "Error",
+        message: "You do not have access to this page",
+        timer: 5000
+      })
 }
 let session = JSON.parse(localStorage.getItem("session"))
 
@@ -10,9 +16,14 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
         "Content-type": "application/json; charset=UTF-8" },  
 }).then(res => {
     if(res.status !== 200 ){
-        //toast here
         localStorage.removeItem("session")
         window.location = "/"
+        cuteToast({
+            type: 'error', // or 'info', 'error', 'warning',
+            title: "Error",
+            message: "You do not have access to this page",
+            timer: 5000
+          })
         throw Error("Unauthorized")
     }
     return res.json()
@@ -56,10 +67,14 @@ fetch(`http://192.168.0.107:5000/api/Fine`, {
         "Content-type": "application/json; charset=UTF-8" },  
 }).then(res => {
     if(res.status !== 200 ){
-        //toast here
         localStorage.removeItem("session")
         window.location = "/"
-        throw Error("Unauthorized")
+        cuteToast({
+            type: 'error', // or 'info', 'error', 'warning',
+            title: "Error",
+            message: "You do not have access to this page",
+            timer: 5000
+          })
     }
     return res.json()
 }).then(res => {
@@ -126,39 +141,51 @@ document.getElementById('confirm-btn').onclick = function(){
         }
     }
 
-    fines.forEach(fine => {
-        members.forEach(member => {
-            postFine(member, fine)
+    if(fines.length !== 0 && members.length !== 0 ){
+        let transactions = []
+
+        fines.forEach(fine => {
+            members.forEach(member => {
+                transactions.push({date: document.getElementById('date').value,
+                amount: document.getElementById(`${fine}-info`).textContent,
+                memberId: member,
+                id: fine,
+                transactionType: "fine"})
+            });
         });
-    });
-
-    
-
+        
+        postFine(transactions)
+    }else{
+        cuteToast({
+            type: 'warning', // or 'info', 'error', 'warning',
+            title: "Warning",
+            message: "Please select both members and fines",
+            timer: 5000
+          })
+    }
 }
 
-function postFine(member, fine){
-
+function postFine(transactions){
     fetch("http://192.168.0.107:5000/api/Transaction", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },
-            body: JSON.stringify({
-                "transactions": [
-                  {
-                        date: document.getElementById('date').value,
-                        amount: document.getElementById(`${fine}-info`).textContent,
-                        memberId: member,
-                        id: fine,
-                        transactionType: "fine"
-                  }
-                ]
-              })  
+            body: JSON.stringify({transactions: transactions})  
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("Unauthorized")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Something went wrong",
+                    timer: 5000
+                  })
             }else if(res.status === 200){
-                
+                cuteToast({
+                    type: 'success', // or 'info', 'error', 'warning',
+                    title: "Success",
+                    message: "Fines assigned",
+                    timer: 5000
+                  })
             }
             return res.json()
         })

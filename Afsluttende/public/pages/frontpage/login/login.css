@@ -12,7 +12,6 @@
   }
   
   .wrapper .title h1, .title p{
-    color: var(--primary);
     text-align: center;
     margin-bottom: 10px;
   }

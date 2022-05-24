@@ -14,8 +14,12 @@ function createUser() {
             })  
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("Credentials not correct")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "User with this email already exists",
+                    timer: 5000
+                  })
             }else if(res.status === 200){
                 window.location = '/home'
             }
@@ -25,7 +29,12 @@ function createUser() {
             localStorage.setItem("session", JSON.stringify(res))
         });
     }else{
-        window.alert("You need to fill out all fields in order to register")
+        cuteToast({
+            type: 'warning', // or 'info', 'error', 'warning',
+            title: "Warning",
+            message: "You need to fill out all fields before trying to login",
+            timer: 5000
+          })
     }
 }  
 

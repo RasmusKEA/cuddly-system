@@ -5,8 +5,8 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: var(--light);
-    background-color: var(--dark);
 }
+
 
 :root{
     --light: #fdfffe;
@@ -25,7 +25,6 @@ nav{
 }
 
 .title-head-h1 {
-    color: var(--primary);
     font-size: 28px;
     font-weight: 900;
     letter-spacing: 2px;
@@ -33,7 +32,6 @@ nav{
 }
 
 .title-head, .title-head:hover{
-    color: var(--primary);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -45,7 +43,7 @@ nav{
 
 main {
     background-color: var(--dark);
-    min-height: calc(100vh - 150px);
+    min-height: 100vh;
 }
 
 button:hover{

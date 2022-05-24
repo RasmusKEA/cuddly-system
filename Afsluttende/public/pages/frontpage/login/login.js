@@ -16,8 +16,12 @@ function loginUser() {
             })  
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("Incorrect login credentials")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Incorrect login credentials",
+                    timer: 5000
+                  })
             }else if(res.status === 200){
                 window.location = '/home'
             }
@@ -25,12 +29,14 @@ function loginUser() {
         })
         .then(res => {
             localStorage.setItem("session", JSON.stringify(res))
-            //let session = localStorage.getItem("session")
-            //let jsonSes = JSON.parse(session)
-            //console.log(jsonSes.accessToken)
         });
     }else{
-        window.alert("You need to fill out all fields before trying to login")
+        cuteToast({
+            type: 'warning', // or 'info', 'error', 'warning',
+            title: "Warning",
+            message: "You need to fill out all fields before trying to login",
+            timer: 5000
+          })
     }
 
 }  

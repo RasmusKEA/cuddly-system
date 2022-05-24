@@ -15,7 +15,6 @@
    
 }
 
-
 .radio-label{
     margin-left: 10px;
     padding-bottom: 5px;
@@ -34,7 +33,6 @@
 }
 
 .under-title{
-    color: var(--primary);
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 2px;

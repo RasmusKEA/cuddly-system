@@ -65,3 +65,4 @@ document.getElementById("settings-button").onclick = function(){window.location 
 document.getElementById("activity-button").onclick = function(){window.location = "/activity"}
 document.getElementById('deposit-btn').onclick = function(){window.location = '/deposit'}
 document.getElementById('assign-btn').onclick = function(){window.location = '/assign'}
+document.getElementById('withdraw-btn').onclick = function(){window.location = '/withdraw'}

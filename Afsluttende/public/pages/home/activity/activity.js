@@ -69,6 +69,7 @@ fetch(`http://192.168.0.107:5000/api/Transaction`, {
 });
 
 function populateActivity(data) {
+    console.log(data)
     const transactionRow = document.getElementById("transaction-div")
     data.forEach(transaction => {
         let transWrap = document.createElement("div")
@@ -79,8 +80,8 @@ function populateActivity(data) {
         left.className = "left"
         let leftSpan = document.createElement("span")
         let leftSpan1 = document.createElement("span")
-        if(transaction.transactionType === "Withdraw"){
-            leftSpan1.innerHTML = `${transaction.transactionType}`
+        if(transaction.transactionType === "withdraw"){
+            leftSpan1.innerHTML = 'Withdraw'
         }else{
             leftSpan1.innerHTML = `${transaction.member.name}`
         }
