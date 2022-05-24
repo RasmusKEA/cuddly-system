@@ -18,6 +18,7 @@ const assignPage = createPage('home/assign/assign.html')
 const paymentPage = createPage('home/settings/services/payment/payment.html')
 const monthlyPage = createPage('home/settings/services/monthly/monthly.html')
 const withdrawPage = createPage('home/withdraw/withdraw.html')
+const membersPage = createPage('home/members/members.html')
 
 
 app.get('/', (req, res) => {
@@ -58,6 +59,10 @@ app.get('/monthly', (req, res) =>{
 
 app.get('/withdraw', (req, res) => {
   res.send(withdrawPage)
+})
+
+app.get('/members', (req, res) =>{
+  res.send(membersPage)
 })
 
 app.listen(port, () => {
