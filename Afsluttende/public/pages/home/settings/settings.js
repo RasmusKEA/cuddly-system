@@ -32,14 +32,28 @@ function monthly(){
 }
 
 document.getElementById("news").onclick = function() {news()}
-    function news(){
-        window.location ="/news"
-    }
+function news(){
+    window.location ="/news"
+}
 
-    document.getElementById("feedback").onclick = function() {feedback()}
-    function feedback(){
-        window.location ="/feedback"
-    }
+document.getElementById("feedback").onclick = function() {feedback()}
+function feedback(){
+    window.location ="/feedback"
+}
+
+document.getElementById("change-member-password").onclick = function() {member()}
+function member(){
+    window.location ="/member"
+}
+
+document.getElementById("change-admin-password").onclick = function() {admin()}
+function admin(){
+    window.location ="/admin"
+}
+
+
+
+
 
     document.getElementById("export-team-info").onclick = function(){exportData()}
     function exportData(){

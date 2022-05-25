@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const { createPage } = require("./render.js");
 const { urlencoded } = require("express"); 
+const res = require('express/lib/response');
 
 const loginPage = createPage('frontpage/login/login.html')
 const homePage = createPage('home/home.html')
@@ -22,6 +23,8 @@ const membersPage = createPage('home/members/members.html')
 const newsPage = createPage('home/settings/other/news/news.html')
 const finetypesPage = createPage('home/finetypes/finetypes.html')
 const feedbackPage = createPage('home/settings/other/feedback/feedback.html')
+const changePwMemberPage = createPage('home/settings/teamsettings/memberpassword/member.html')
+const changePwAdminPage = createPage('home/settings/teamsettings/adminpassword/admin.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -78,6 +81,14 @@ app.get('/finetypes', (req, res) => {
 
 app.get('/feedback', (req, res) => {
   res.send(feedbackPage)
+})
+
+app.get('/member', (req, res) => {
+  res.send(changePwMemberPage)
+})
+
+app.get('/admin', (req, res) => {
+  res.send(changePwAdminPage)
 })
 
 app.listen(port, () => {
