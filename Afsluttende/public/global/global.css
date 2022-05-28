@@ -49,3 +49,40 @@ main {
 button:hover{
     opacity: 50%;
 }
+
+input, textarea, select option, select{
+    margin: 10px 0;
+    border: 0px;
+    border-bottom: 2px solid var(--secondary);
+    padding: 10px;
+    color: var(--light);
+    background-color: var(--secondary);
+    border-radius: 5px;
+}
+
+.confirm-btn{
+    background-color: var(--secondary);
+    border: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    background-color: var(--light);
+    color: var(--dark);
+    width: 10%;
+}
+
+.page-title{
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.description{
+    opacity: 50%;
+    font-style: italic;
+}

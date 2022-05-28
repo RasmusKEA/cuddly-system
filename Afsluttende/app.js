@@ -25,6 +25,9 @@ const finetypesPage = createPage('home/finetypes/finetypes.html')
 const feedbackPage = createPage('home/settings/other/feedback/feedback.html')
 const changePwMemberPage = createPage('home/settings/teamsettings/memberpassword/member.html')
 const changePwAdminPage = createPage('home/settings/teamsettings/adminpassword/admin.html')
+const addFineTypesPage = createPage('home/finetypes/add/add.html')
+const addMemberPage = createPage('home/members/add/add.html')
+const forgotPasswordPage = createPage('frontpage/forgot-password/forgot-password.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -66,7 +69,6 @@ app.get('/withdraw', (req, res) => {
   res.send(withdrawPage)
 })
 
-
 app.get('/members', (req, res) =>{
   res.send(membersPage)
 })
@@ -89,6 +91,18 @@ app.get('/member', (req, res) => {
 
 app.get('/admin', (req, res) => {
   res.send(changePwAdminPage)
+})
+
+app.get('/finetypes/add', (req, res) => {
+  res.send(addFineTypesPage)
+})
+
+app.get('/members/add', (req, res) => {
+  res.send(addMemberPage)
+})
+
+app.get('/forgot-password', (req, res) => {
+  res.send(forgotPasswordPage)
 })
 
 app.listen(port, () => {

@@ -86,33 +86,36 @@ function populateFines(data){
 
     data.forEach(element => {
 
-        let infoDiv = document.createElement('div')
-        infoDiv.className = 'fine-info'
-
-        let label = document.createElement('label')
-        label.className = 'container'
-        label.innerHTML = element.name
-
-        let input = document.createElement('input')
-        input.type = 'checkbox'
-        input.id = element.id
-        input.className = "select-fines"
-        label.append(input)
-
-        let checkmark = document.createElement('span')
-        checkmark.className = 'checkmark'
-        label.append(checkmark)
-
-        let info = document.createElement('p')
-        info.className = 'fine-amount'
-        info.id = `${element.id}-info`
-        info.innerHTML = element.amount
-
-        infoDiv.append(label)
-        infoDiv.append(info)
-
-
-        checkboxDiv.append(infoDiv)
+        if(element.name !== "Recurring Fine"){
+            let infoDiv = document.createElement('div')
+            infoDiv.className = 'fine-info'
+    
+            let label = document.createElement('label')
+            label.className = 'container'
+            label.innerHTML = element.name
+    
+            let input = document.createElement('input')
+            input.type = 'checkbox'
+            input.id = element.id
+            input.className = "select-fines"
+            label.append(input)
+    
+            let checkmark = document.createElement('span')
+            checkmark.className = 'checkmark'
+            label.append(checkmark)
+    
+            let info = document.createElement('p')
+            info.className = 'fine-amount'
+            info.id = `${element.id}-info`
+            info.innerHTML = element.amount
+    
+            infoDiv.append(label)
+            infoDiv.append(info)
+    
+    
+            checkboxDiv.append(infoDiv)
+        }
+        
     });
 }
 document.getElementById('select-all-fines').onclick = function() {

@@ -5,45 +5,17 @@
     align-items: center;
     max-width: 100%;
     padding: 30px;
-    text-align: center;
-    align-items: center;
     margin-bottom: -50px;
+    width: 100%;
 }
 
 .left, .right{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-content: center;
 }
-
-.input{
-    margin: 10px 0;
-    background: transparent;
-    border: 0px;
-    border-bottom: 2px solid var(--secondary);
-    padding: 10px;
-    color: var(--light);
-    background-color: var(--secondary);
-    border-radius: 5px;
-    width: 100%;
-  }
 
   .left{
       margin-top: 50px;
-  }
-
-  .submit{
-    background-color: var(--secondary);
-    border: none;
-    text-align: center;
-    padding: 15px;
-    border-radius: 5px;
-    color: var(--light);
-    cursor: pointer;
-    text-transform: uppercase;
-    margin-bottom: 5px;
   }
 /*Custom checkbox style from w3school: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
 .container {

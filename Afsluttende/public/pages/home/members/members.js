@@ -109,7 +109,7 @@ function populateMemberDetails(json){
 
     let updateButton = document.createElement('button')
     updateButton.id = 'update-btn'
-    updateButton.className = 'button'
+    updateButton.className = 'confirm-btn'
     updateButton.innerHTML = 'Update'
     updateButton.onclick = function(){
         updateMember(json.id)
@@ -117,7 +117,7 @@ function populateMemberDetails(json){
 
     let deleteButton = document.createElement('button')
     deleteButton.id = 'delete-btn'
-    deleteButton.className = 'button'
+    deleteButton.className = 'confirm-btn'
     deleteButton.innerHTML = 'Delete'
     deleteButton.onclick = function(){
         deleteMember(json.id)
@@ -236,3 +236,5 @@ function deleteMember(id){
         }   
     })
 }
+
+document.getElementById('add-btn').onclick = function(){window.location = '/members/add'}

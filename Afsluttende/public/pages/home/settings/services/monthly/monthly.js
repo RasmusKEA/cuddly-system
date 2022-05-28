@@ -8,10 +8,6 @@ window.onload = function() {
     document.getElementById("checkbox").checked = true;
 }
 
-function divClick(){
-    console.log("hi")
-}
-
 fetch(`http://192.168.0.107:5000/api/RecurringFine
 `, {
     method: "GET",

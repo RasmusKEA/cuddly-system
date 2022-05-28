@@ -32,34 +32,9 @@
 }
 
 .fine-amount{
-    margin-top: 5px;
     margin-left: 50px;
     color: #df5c60;
 }
-
-.submit{
-    background-color: var(--secondary);
-    border: none;
-    text-align: center;
-    padding: 15px;
-    border-radius: 5px;
-    color: var(--light);
-    cursor: pointer;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-  }
-
-  .input{
-    margin: 10px 0;
-    background: transparent;
-    border: 0px;
-    border-bottom: 2px solid var(--secondary);
-    padding: 10px;
-    color: var(--light);
-    background-color: var(--secondary);
-    border-radius: 5px;
-    cursor: pointer;
-  }
 
   .header{
       text-align: left;

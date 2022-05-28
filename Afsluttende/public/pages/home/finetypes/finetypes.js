@@ -102,7 +102,7 @@ function populateEditFine(json){
 
     let updateButton = document.createElement('button')
     updateButton.id = 'update-btn'
-    updateButton.className = 'button'
+    updateButton.className = 'confirm-btn'
     updateButton.innerHTML = 'Update'
     updateButton.onclick = function(){
         updateFineType(json.id)
@@ -110,7 +110,7 @@ function populateEditFine(json){
 
     let deleteButton = document.createElement('button')
     deleteButton.id = 'delete-btn'
-    deleteButton.className = 'button'
+    deleteButton.className = 'confirm-btn'
     deleteButton.innerHTML = 'Delete'
     deleteButton.onclick = function(){
         deleteFineType(json.id)
@@ -187,3 +187,5 @@ function deleteFineType(id){
         }   
     })
 }
+
+document.getElementById('add-btn').onclick = function(){window.location = '/finetypes/add'}

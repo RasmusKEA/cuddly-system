@@ -36,7 +36,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
 });
 
 function checkCheckbox() {  
-    var checkbox = document.getElementById("checkbox");  
+    let checkbox = document.getElementById("checkbox");  
     
     fetch("http://192.168.0.107:5000/api/User", {
         method: "PATCH",
