@@ -51,6 +51,11 @@ function admin(){
     window.location ="/admin"
 }
 
+document.getElementById("currency").onclick = function() {currency()}
+function currency(){
+    window.location ="/currency"
+}
+
 
 
 

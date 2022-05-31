@@ -28,6 +28,17 @@ const changePwAdminPage = createPage('home/settings/teamsettings/adminpassword/a
 const addFineTypesPage = createPage('home/finetypes/add/add.html')
 const addMemberPage = createPage('home/members/add/add.html')
 const forgotPasswordPage = createPage('frontpage/forgot-password/forgot-password.html')
+const currencyPage = createPage('home/settings/teamsettings/currency/currency.html')
+var fs = require('fs');
+
+var usersFilePath = './public/global/currencies.json';
+console.log(usersFilePath)
+
+app.get('/users', function(req, res){
+    var readable = fs.createReadStream(usersFilePath);
+    readable.pipe(res);
+});
+
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -103,6 +114,10 @@ app.get('/members/add', (req, res) => {
 
 app.get('/forgot-password', (req, res) => {
   res.send(forgotPasswordPage)
+})
+
+app.get('/currency', (req, res) => {
+  res.send(currencyPage)
 })
 
 app.listen(port, () => {
