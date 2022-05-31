@@ -11,10 +11,17 @@ fetch(`http://192.168.0.107:5000/api/Transaction`, {
         "Content-type": "application/json; charset=UTF-8" },  
 }).then(res => {
     if(res.status !== 200 ){
-        //toast here
-        localStorage.removeItem("session")
-        window.location = "/"
-        throw Error("Unauthorized")
+        cuteToast({
+            type: 'warning', // or 'info', 'error', 'warning',
+            title: "Warning",
+            message: "Something went wrong",
+            timer: 5000
+        })
+        
+        setTimeout(() => {
+            localStorage.removeItem("session")
+            window.location = "/"
+        }, 750);
     }
     return res.json()
 }).then(json => {
@@ -152,9 +159,25 @@ function deleteTransaction(id) {
                 "Content-type": "application/json; charset=UTF-8" }
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("An error occured")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Something went wrong",
+                    timer: 5000
+                })
+
+                setTimeout(() => {
+                    localStorage.removeItem("session")
+                    window.location = "/"
+                }, 750);
             }else if(res.status === 200){
+                cuteToast({
+                    type: 'success', // or 'info', 'error', 'warning',
+                    title: "Success",
+                    message: "Transaction deleted",
+                    timer: 5000
+                })
+                
                 removeAllChildNodes(document.getElementById(`${id}-div`))
             }
         })
