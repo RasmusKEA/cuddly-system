@@ -29,6 +29,7 @@ const addFineTypesPage = createPage('home/finetypes/add/add.html')
 const addMemberPage = createPage('home/members/add/add.html')
 const forgotPasswordPage = createPage('frontpage/forgot-password/forgot-password.html')
 const profilePage = createPage('home/profile/profile.html')
+const currencyPage = createPage('home/settings/teamsettings/currency/currency.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -110,7 +111,11 @@ app.get('/profile', (req, res) => {
   res.send(profilePage)
 })
 
+app.get('/currency', (req, res) => {
+  res.send(currencyPage)
+})
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`)
-  });
+});
   
