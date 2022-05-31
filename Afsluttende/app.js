@@ -28,6 +28,7 @@ const changePwAdminPage = createPage('home/settings/teamsettings/adminpassword/a
 const addFineTypesPage = createPage('home/finetypes/add/add.html')
 const addMemberPage = createPage('home/members/add/add.html')
 const forgotPasswordPage = createPage('frontpage/forgot-password/forgot-password.html')
+const profilePage = createPage('home/profile/profile.html')
 
 app.get('/', (req, res) => {
   res.send(loginPage)
@@ -103,6 +104,10 @@ app.get('/members/add', (req, res) => {
 
 app.get('/forgot-password', (req, res) => {
   res.send(forgotPasswordPage)
+})
+
+app.get('/profile', (req, res) => {
+  res.send(profilePage)
 })
 
 app.listen(port, () => {

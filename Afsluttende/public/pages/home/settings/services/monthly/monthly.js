@@ -34,7 +34,7 @@ function populateRecurringFine(data){
     data.forEach(element => {
         let recurringFineDiv = document.createElement("div")
         recurringFineDiv.className = "recurring-fine"
-        recurringFineDiv.id = element.id
+        recurringFineDiv.id = `${element.id}-div`
 
         let innerLeft = document.createElement("div")
         innerLeft.className = "inner-left"
@@ -55,18 +55,30 @@ function populateRecurringFine(data){
         amount.className = "amount"
         amount.innerHTML = element.amount
 
+        let deleteBtn = document.createElement("button")
+        deleteBtn.className = "delete-btn"
+        deleteBtn.id = element.id
+
         let image = document.createElement("img")
         image.className = "delete-image"
         image.setAttribute("src", "./global/delete.png")
 
+        deleteBtn.append(image)
+
         innerRight.append(amount)
-        innerRight.append(image)
+        innerRight.append(deleteBtn)
 
         recurringFineDiv.append(innerLeft)
         recurringFineDiv.append(innerRight)
         leftDiv.append(recurringFineDiv)
 
     });
+
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener('click', event => {
+            deleteRecurringFine(btn.id)
+        })
+    })
 }
 
 document.getElementById("submit").onclick = function(){
@@ -90,14 +102,57 @@ document.getElementById("submit").onclick = function(){
                 )  
         }).then(res => {
             if(res.status !== 200 ){
-                //toast here
-                throw Error("Incorrect login credentials")
+                cuteToast({
+                    type: 'warning', // or 'info', 'error', 'warning',
+                    title: "Warning",
+                    message: "Something went wrong",
+                    timer: 5000
+                  })
             }else if(res.status === 200){
-                //toast confirm here
+                cuteToast({
+                    type: 'success', // or 'info', 'error', 'warning',
+                    title: "Success",
+                    message: "Recurring fine registered",
+                    timer: 5000
+                  })
+                  setTimeout(() => {
+                    location.reload()
+                  }, 750);
             }
             return res.json()
         })
-    
+}
+
+function deleteRecurringFine(id) {
+    fetch(`http://192.168.0.107:5000/api/RecurringFine/${id}`, {
+        method: "DELETE",
+        headers: { 
+            'Authorization': `Bearer ${session.accessToken}`,
+            "Content-type": "application/json; charset=UTF-8" }
+    }).then(res => {
+        if(res.status !== 200 ){
+            cuteToast({
+                type: 'warning', // or 'info', 'error', 'warning',
+                title: "Warning",
+                message: "Something went wrong",
+                timer: 5000
+              })
+        }else if(res.status === 200){
+            cuteToast({
+                type: 'success', // or 'info', 'error', 'warning',
+                title: "Success",
+                message: "Recurring fine deleted",
+                timer: 5000
+              })
+            removeAllChildNodes(document.getElementById(`${id}-div`))
+        }
+    })
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 document.getElementById('date').valueAsDate = new Date()
