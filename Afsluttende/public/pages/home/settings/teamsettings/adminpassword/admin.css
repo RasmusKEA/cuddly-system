@@ -2,13 +2,12 @@
     margin-top: 10px;
 }
 
-
 .all{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
 
 .input-field, .input-field1, .input-field2{
@@ -22,8 +21,4 @@
 
 label{
     margin-top: 5px;
-}
-
-.text{
-    color: gray;
 }

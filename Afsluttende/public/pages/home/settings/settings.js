@@ -16,9 +16,19 @@ if(session.role !== "admin"){
 
 document.getElementById("log-out").onclick = function() {logout()};
 function logout(){
-    localStorage.removeItem("session")
-    window.location = "/"
 
+    cuteAlert({
+        type: 'question',
+        title: 'Log out',
+    message: "Are you sure you want to log out?",
+        confirmText: "I am sure!",
+        cancelText: "Do not log out"
+    }).then((e) => {
+        if(e == "confirm"){
+            localStorage.removeItem("session")
+            window.location = "/"
+        }
+    })
 }
 
 document.getElementById("payment").onclick = function() {payment()}
@@ -60,7 +70,7 @@ function currency(){
 
 
 
-    document.getElementById("export-team-info").onclick = function(){exportData()}
+document.getElementById("export-team-info").onclick = function(){exportData()}
     function exportData(){
         console.log(session.accessToken)
         cuteAlert({

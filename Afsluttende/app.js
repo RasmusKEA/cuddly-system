@@ -6,8 +6,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const { createPage } = require("./render.js");
-const { urlencoded } = require("express"); 
-const res = require('express/lib/response');
 
 const loginPage = createPage('frontpage/login/login.html')
 const homePage = createPage('home/home.html')
