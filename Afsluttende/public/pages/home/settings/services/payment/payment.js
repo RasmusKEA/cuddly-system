@@ -98,3 +98,8 @@ function checkCheckbox() {
         return res.json()
     })
   }
+
+if(session.role !== "admin"){
+    document.getElementById('wrapper-div').style.display = 'none'
+    document.getElementById('member-text').style.display = 'flex'
+}

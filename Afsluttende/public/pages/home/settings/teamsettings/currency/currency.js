@@ -1,8 +1,9 @@
-if(localStorage.getItem("session") === null){
-    window.location = "/"
-}
-
 let session = JSON.parse(localStorage.getItem("session"))
+if(session === null){
+    window.location = "/"
+}else if(session.role !== "admin"){
+    window.location = "/home"
+}
 
 let currencyId;
 let currencyBtn = document.querySelectorAll('.currency-selector')

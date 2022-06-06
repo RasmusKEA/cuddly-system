@@ -1,8 +1,10 @@
-if(localStorage.getItem("session") === null){
+let session = JSON.parse(localStorage.getItem("session"))
+if(session === null){
     window.location = "/"
+}else if(session.role !== "admin"){
+    window.location = "/home"
 }
 
-let session = JSON.parse(localStorage.getItem("session"))
 let userEmail
 
 fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {

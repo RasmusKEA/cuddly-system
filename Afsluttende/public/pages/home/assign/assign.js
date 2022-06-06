@@ -1,13 +1,9 @@
-if(localStorage.getItem("session") === null){
-    window.location = "/"
-    cuteToast({
-        type: 'error', // or 'info', 'error', 'warning',
-        title: "Error",
-        message: "You do not have access to this page",
-        timer: 5000
-      })
-}
 let session = JSON.parse(localStorage.getItem("session"))
+if(session === null){
+    window.location = "/"
+}else if(session.role !== "admin"){
+    window.location = "/home"
+}
 
 fetch(`http://192.168.0.107:5000/api/Member`, {
     method: "GET",

@@ -1,8 +1,7 @@
-if(localStorage.getItem("session") === null){
+let session = JSON.parse(localStorage.getItem("session"))
+if(session === null){
     window.location = "/"
 }
-
-let session = JSON.parse(localStorage.getItem("session"))
 
 window.onload = function() {
     document.getElementById("checkbox").checked = true;
@@ -61,19 +60,21 @@ function populateRecurringFine(data){
         let amount = document.createElement("p")
         amount.className = "amount"
         amount.innerHTML = element.amount
-
-        let deleteBtn = document.createElement("button")
-        deleteBtn.className = "delete-btn"
-        deleteBtn.id = element.id
-
-        let image = document.createElement("img")
-        image.className = "delete-image"
-        image.setAttribute("src", "./global/delete.png")
-
-        deleteBtn.append(image)
-
         innerRight.append(amount)
-        innerRight.append(deleteBtn)
+        console.log(session.role !== "admin")
+
+        if(session.role === "admin"){
+            let deleteBtn = document.createElement("button")
+            deleteBtn.className = "delete-btn"
+            deleteBtn.id = element.id
+    
+            let image = document.createElement("img")
+            image.className = "delete-image"
+            image.setAttribute("src", "./global/delete.png")
+    
+            deleteBtn.append(image)
+            innerRight.append(deleteBtn)
+        }
 
         recurringFineDiv.append(innerLeft)
         recurringFineDiv.append(innerRight)
@@ -81,11 +82,14 @@ function populateRecurringFine(data){
 
     });
 
-    document.querySelectorAll(".delete-btn").forEach(btn => {
-        btn.addEventListener('click', event => {
-            deleteRecurringFine(btn.id)
+    if(session.role === "admin"){
+        document.querySelectorAll(".delete-btn").forEach(btn => {
+            btn.addEventListener('click', event => {
+                deleteRecurringFine(btn.id)
+            })
         })
-    })
+    }
+    
 }
 
 document.getElementById("submit").onclick = function(){
@@ -161,5 +165,13 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+if(session.role !== "admin"){
+    document.getElementById('right').style.display = 'none'
+    document.getElementById('wrapper-div').style.justifyContent = 'center'
+    document.getElementsByClassName('delete-btn').style.display = 'none'
+}
+
+
 
 document.getElementById('date').valueAsDate = new Date()

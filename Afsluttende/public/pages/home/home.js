@@ -39,11 +39,9 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
     if(session.role !== "admin"){
         document.getElementById("withdraw-btn").style.display = "none"
         document.getElementById("deposit-btn").style.display = "none"
-    }
-
-    if(session.role !== "admin" && json.mobilePayActive === true){
-        document.getElementById("deposit-btn").style.display = "block"
-    }    
+        document.getElementById("assign-btn").style.display = "none"
+        
+    }  
 });
 
 fetch(`http://192.168.0.107:5000/api/Member`, {

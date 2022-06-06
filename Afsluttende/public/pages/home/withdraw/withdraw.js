@@ -1,7 +1,9 @@
-if(localStorage.getItem("session") === null){
-    window.location = "/"
-}
 let session = JSON.parse(localStorage.getItem("session"))
+if(session === null){
+    window.location = "/"
+}else if(session.role !== "admin"){
+    window.location = "/home"
+}
 
 document.getElementById('confirm-btn').onclick = function(){
     fetch("http://192.168.0.107:5000/api/Transaction/withdraw", {

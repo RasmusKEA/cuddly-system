@@ -73,6 +73,24 @@
     flex-direction: row;
 }
 
+.member-text{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+}
+
+.image-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.text-display{
+  width: 30%;
+}
+
 
 /*checkbox styling from https://www.w3schools.com/howto/howto_css_switch.asp*/
 
