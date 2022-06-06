@@ -54,6 +54,10 @@ document.getElementById('confirm-btn').onclick = function(){
                     timer: 5000
                   })
             }
+            setTimeout(() => {
+                window.location = '/'
+            }, 500);
+            
         })
     }
 
