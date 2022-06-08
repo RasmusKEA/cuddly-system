@@ -7,7 +7,7 @@ window.onload = function() {
     document.getElementById("checkbox").checked = true;
 }
 
-fetch(`http://192.168.0.107:5000/api/RecurringFine
+fetch(`https://paythehippy-app.azurewebsites.net/api/RecurringFine
 `, {
     method: "GET",
     headers: { 
@@ -100,7 +100,7 @@ document.getElementById("submit").onclick = function(){
     console.log(document.getElementById("checkbox").checked)
 
 
-    fetch("http://192.168.0.107:5000/api/RecurringFine", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/RecurringFine", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },
@@ -135,7 +135,7 @@ document.getElementById("submit").onclick = function(){
 }
 
 function deleteRecurringFine(id) {
-    fetch(`http://192.168.0.107:5000/api/RecurringFine/${id}`, {
+    fetch(`https://paythehippy-app.azurewebsites.net/api/RecurringFine/${id}`, {
         method: "DELETE",
         headers: { 
             'Authorization': `Bearer ${session.accessToken}`,

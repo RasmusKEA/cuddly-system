@@ -16,7 +16,7 @@ buttons.forEach(button => {
 
 document.getElementById('submit').onclick = function(){
     console.log(localStorage.getItem('grade'))
-    fetch("http://192.168.0.107:5000/api/Feedback", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/Feedback", {
         method: "POST",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },

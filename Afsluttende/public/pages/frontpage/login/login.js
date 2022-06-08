@@ -4,7 +4,7 @@ if(localStorage.getItem("session") != null){
 
 function loginUser() {
     if(document.getElementById("email").value !== '' && document.getElementById("password").value !== ''){
-        fetch("http://192.168.0.107:5000/api/User/authenticate", {
+        fetch("https://paythehippy-app.azurewebsites.net/api/User/authenticate", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify({

@@ -5,7 +5,7 @@ if(session === null){
     window.location = "/home"
 }
 
-fetch(`http://192.168.0.107:5000/api/Member`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Member`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -56,7 +56,7 @@ document.getElementById('select-all-members').onclick = function() {
     }
 }
 
-fetch(`http://192.168.0.107:5000/api/Fine`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Fine`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -165,7 +165,7 @@ document.getElementById('confirm-btn').onclick = function(){
 }
 
 function postFine(transactions){
-    fetch("http://192.168.0.107:5000/api/Transaction", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/Transaction", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },
@@ -185,8 +185,10 @@ function postFine(transactions){
                     message: "Fines assigned",
                     timer: 5000
                   })
+                  setTimeout(() => {
+                    location.reload()
+                  }, 500);  
             }
-            return res.json()
         })
 }
 

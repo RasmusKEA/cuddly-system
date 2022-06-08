@@ -8,7 +8,7 @@ if(session === null){
 let currencyId;
 let currencyBtn = document.querySelectorAll('.currency-selector')
 
-fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/User/${session.id}`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -44,7 +44,7 @@ currencyBtn.forEach(btn => {
 
 
 document.getElementById('confirm-btn').onclick = function(){
-    fetch("http://192.168.0.107:5000/api/User", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/User", {
         method: "PATCH",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },

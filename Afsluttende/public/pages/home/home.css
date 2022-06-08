@@ -61,6 +61,10 @@ main{
     margin-bottom: 30px;
 }
 
+.header-row:hover{
+    cursor: pointer;
+}
+
 .team-name{
     color: var(--light);
     margin-top: 15px;

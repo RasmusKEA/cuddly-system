@@ -40,16 +40,8 @@
 }
 
 
-.submit{
-margin-top: 10px;
-background-color: #40b930;
-border: none;
-text-align: center;
-border-radius: 5px;
-color: var(--light);
-cursor: pointer;
-height:40px; 
-width:200px;
+.confirm-btn{
+  width: 30%;
 }
 
 .grade-button:active, .grade-button:focus {

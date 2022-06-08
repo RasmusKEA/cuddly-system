@@ -4,7 +4,7 @@ if(localStorage.getItem("session") === null){
 
 let session = JSON.parse(localStorage.getItem("session"))
 
-fetch(`http://192.168.0.107:5000/api/Transaction`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Transaction`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -152,7 +152,7 @@ function removeAllChildNodes(parent) {
 }
 
 function deleteTransaction(id) {
-        fetch(`http://192.168.0.107:5000/api/transaction/${id}`, {
+        fetch(`https://paythehippy-app.azurewebsites.net/api/transaction/${id}`, {
             method: "DELETE",
             headers: { 
                 'Authorization': `Bearer ${session.accessToken}`,

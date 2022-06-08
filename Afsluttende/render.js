@@ -7,7 +7,6 @@ function createPage(path, options) {
             .replace("%%DOCUMENT_TITLE%%", options?.title || "PTH");
 }
 
-
 module.exports = {
     createPage
 };

@@ -5,7 +5,7 @@ if(localStorage.getItem("session") === null){
 let session = JSON.parse(localStorage.getItem("session"))
 
 document.getElementById('confirm-btn').onclick = function(){
-    fetch("http://192.168.0.107:5000/api/Member", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/Member", {
         method: "POST",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },

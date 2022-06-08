@@ -5,7 +5,7 @@ if(session === null || session.role !== 'admin'){
 
 let currentTeamName;
 
-fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/User/${session.id}`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -34,7 +34,7 @@ document.getElementById('confirm-btn').onclick = function(){
         let formData = new FormData()
         formData.append('img', file.files[0])
 
-        fetch("http://192.168.0.107:5000/api/User/upload", {
+        fetch("https://paythehippy-app.azurewebsites.net/api/User/upload", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`},
             body: formData
@@ -62,7 +62,7 @@ document.getElementById('confirm-btn').onclick = function(){
     }
 
     if(document.getElementById('team-name').value !== "" && document.getElementById('team-name').value !== currentTeamName){
-        fetch("http://192.168.0.107:5000/api/User", {
+        fetch("https://paythehippy-app.azurewebsites.net/api/User", {
             method: "PATCH",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },
@@ -82,8 +82,10 @@ document.getElementById('confirm-btn').onclick = function(){
                     message: "Team name saved",
                     timer: 5000
                   })
+                  setTimeout(() => {
+                    window.location = '/'
+                }, 500);
             }
-            return res.json()
         })
     }
 

@@ -6,7 +6,7 @@ if(session === null){
 }
 
 
-fetch(`http://192.168.0.107:5000/api/Member`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Member`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -84,7 +84,8 @@ document.getElementById('confirm-btn').onclick = function(){
 }
 
 function postDeposit(members){
-    fetch("http://192.168.0.107:5000/api/Transaction", {
+    if(document.getElementById('amount').value !== ''){
+        fetch("https://paythehippy-app.azurewebsites.net/api/Transaction", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },
@@ -104,9 +105,20 @@ function postDeposit(members){
                     message: "Deposits registered",
                     timer: 5000
                   })
+                  setTimeout(() => {
+                    location.reload()
+                  }, 500);  
             }
-            return res.json()
         })
+    }else{
+        cuteToast({
+            type: 'warning', // or 'info', 'error', 'warning',
+            title: "Warning",
+            message: "You need to fill in all fields",
+            timer: 5000
+          })
+    }
+    
 }
 
 document.getElementById('deposit-name').value = "Deposit"

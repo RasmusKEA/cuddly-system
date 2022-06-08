@@ -4,7 +4,7 @@ if(localStorage.getItem("session") === null){
 
 let session = JSON.parse(localStorage.getItem("session"))
 
-fetch(`http://192.168.0.107:5000/api/Fine`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Fine`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -25,7 +25,6 @@ fetch(`http://192.168.0.107:5000/api/Fine`, {
     }
     return res.json()
 }).then(json => {
-    console.log(json.fines)
     populateFineTypes(json.fines)
 })
 
@@ -61,10 +60,11 @@ function populateFineTypes(fines){
         }
     });
 
+if(session.role === 'admin'){
     let fineDiv = document.querySelectorAll('.fine-div')
     fineDiv.forEach(div => {
         div.addEventListener('click', (event) =>{
-            fetch(`http://192.168.0.107:5000/api/Fine/${div.id}`, {
+            fetch(`https://paythehippy-app.azurewebsites.net/api/Fine/${div.id}`, {
                 method: "GET",
                 headers: { 
                     'Authorization': `Bearer ${session.accessToken}`,
@@ -89,6 +89,8 @@ function populateFineTypes(fines){
                 })
         })
     })
+}
+    
 }
 
 function populateEditFine(json){
@@ -144,7 +146,7 @@ function removeAllChildNodes(parent) {
 }
 
 function updateFineType(id){
-    fetch(`http://192.168.0.107:5000/api/Fine/${id}`, {
+    fetch(`https://paythehippy-app.azurewebsites.net/api/Fine/${id}`, {
         method: "PATCH",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
@@ -176,7 +178,7 @@ function updateFineType(id){
 }
 
 function deleteFineType(id){
-    fetch(`http://192.168.0.107:5000/api/Fine/${id}`, {
+    fetch(`https://paythehippy-app.azurewebsites.net/api/Fine/${id}`, {
         method: "DELETE",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
@@ -200,6 +202,10 @@ function deleteFineType(id){
               }, 500);  
         }   
     })
+}
+
+if(session.role !== "admin"){
+    document.getElementById('add').style.display = 'none'
 }
 
 document.getElementById('add-btn').onclick = function(){window.location = '/finetypes/add'}

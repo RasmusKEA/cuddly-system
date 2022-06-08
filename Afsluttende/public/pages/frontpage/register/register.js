@@ -1,6 +1,6 @@
 function createUser() {
     if(document.getElementById("email").value !== '' && document.getElementById("admin-password").value !== '' && document.getElementById("team-password").value !== ''){
-        fetch("http://192.168.0.107:5000/api/User", {
+        fetch("https://paythehippy-app.azurewebsites.net/api/User", {
             method: "POST",
             headers: { "Content-type": "application/json; charset=UTF-8" },
             body: JSON.stringify({

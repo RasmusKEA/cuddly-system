@@ -4,7 +4,7 @@ if(localStorage.getItem("session") === null){
 
 let session = JSON.parse(localStorage.getItem("session"))
 
-fetch(`http://192.168.0.107:5000/api/Member`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Member`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -76,7 +76,7 @@ function populateMembers(members){
     let memberDiv = document.querySelectorAll('.member-div')
     memberDiv.forEach(div => {
         div.addEventListener('click', (event) => {
-            fetch(`http://192.168.0.107:5000/api/Member/${div.id}`, {
+            fetch(`https://paythehippy-app.azurewebsites.net/api/Member/${div.id}`, {
                 method: "GET",
                 headers: { 
                     'Authorization': `Bearer ${session.accessToken}`,
@@ -97,7 +97,10 @@ function populateMembers(members){
                 }
                     return res.json()
                 }).then(json => {
-                    populateMemberDetails(json)
+                    if(session.role === 'admin'){
+                        populateMemberDetails(json)
+                    }
+                    
                 })
         })
     })
@@ -193,7 +196,7 @@ function removeAllChildNodes(parent) {
 }
 
 function updateMember(id){
-    fetch(`http://192.168.0.107:5000/api/Member/${id}`, {
+    fetch(`https://paythehippy-app.azurewebsites.net/api/Member/${id}`, {
         method: "PATCH",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
@@ -224,7 +227,7 @@ function updateMember(id){
 }
 
 function deleteMember(id){
-    fetch(`http://192.168.0.107:5000/api/Member/${id}`, {
+    fetch(`https://paythehippy-app.azurewebsites.net/api/Member/${id}`, {
         method: "DELETE",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
@@ -249,6 +252,10 @@ function deleteMember(id){
               }, 500);  
         }   
     })
+}
+
+if(session.role !== "admin"){
+    document.getElementById('add').style.display = 'none'
 }
 
 document.getElementById('add-btn').onclick = function(){window.location = '/members/add'}

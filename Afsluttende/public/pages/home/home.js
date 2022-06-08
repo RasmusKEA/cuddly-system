@@ -3,7 +3,7 @@ if(localStorage.getItem("session") === null){
 }
 let session = JSON.parse(localStorage.getItem("session"))
 
-fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/User/${session.id}`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -44,7 +44,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
     }  
 });
 
-fetch(`http://192.168.0.107:5000/api/Member`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/Member`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -72,9 +72,12 @@ fetch(`http://192.168.0.107:5000/api/Member`, {
     console.log(session)
 });
 
-document.querySelector('.header-row').onclick = function(){
-    window.location = '/profile'
+if(session.role === 'admin'){
+    document.querySelector('.header-row').onclick = function(){
+        window.location = '/profile'
+    }
 }
+
 document.getElementById("settings-button").onclick = function(){window.location = "/settings"}
 document.getElementById("activity-button").onclick = function(){window.location = "/activity"}
 document.getElementById('deposit-btn').onclick = function(){window.location = '/deposit'}

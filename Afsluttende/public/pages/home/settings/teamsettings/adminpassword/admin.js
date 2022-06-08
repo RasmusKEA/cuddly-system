@@ -7,7 +7,7 @@ if(session === null){
 
 let userEmail
 
-fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/User/${session.id}`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -30,7 +30,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
 
 document.getElementById('submit').onclick = function(){
     if(document.getElementById('new-password').value !== "" && document.getElementById('confirm-password').value !== "" && document.getElementById('new-password').value === document.getElementById('confirm-password').value){
-        fetch("http://192.168.0.107:5000/api/User/change-password", {
+        fetch("https://paythehippy-app.azurewebsites.net/api/User/change-password", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" },

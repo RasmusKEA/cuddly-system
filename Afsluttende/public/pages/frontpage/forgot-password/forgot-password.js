@@ -1,5 +1,5 @@
 document.getElementById('confirm-btn').onclick = function(){
-    fetch("http://192.168.0.107:5000/api/User/forgot-password", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/User/forgot-password", {
         method: "POST",
         headers: {"Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

@@ -81,7 +81,7 @@ document.getElementById("export-team-info").onclick = function(){exportData()}
             cancelText: "Do not send"
         }).then((e) => {
             if(e == "confirm"){
-                fetch("http://192.168.0.107:5000/api/User/export", {
+                fetch("https://paythehippy-app.azurewebsites.net/api/User/export", {
                 method: "POST",
                 headers: { 'Authorization': `Bearer ${session.accessToken}`,
                     "Content-type": "application/json; charset=UTF-8" }   
@@ -120,7 +120,7 @@ console.log(session.accessToken)
         cancelText: "Do not reset"
     }).then((e) => {
         if(e == "confirm"){
-            fetch("http://192.168.0.107:5000/api/User/reset", {
+            fetch("https://paythehippy-app.azurewebsites.net/api/User/reset", {
             method: "POST",
             headers: { 'Authorization': `Bearer ${session.accessToken}`,
                 "Content-type": "application/json; charset=UTF-8" }   

@@ -5,7 +5,7 @@ if(localStorage.getItem("session") === null){
 let session = JSON.parse(localStorage.getItem("session"))
 
 
-fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
+fetch(`https://paythehippy-app.azurewebsites.net/api/User/${session.id}`, {
     method: "GET",
     headers: { 
         'Authorization': `Bearer ${session.accessToken}`,
@@ -45,7 +45,7 @@ fetch(`http://192.168.0.107:5000/api/User/${session.id}`, {
 function checkCheckbox() {  
     let checkbox = document.getElementById("checkbox");  
     
-    fetch("http://192.168.0.107:5000/api/User", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/User", {
         method: "PATCH",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
@@ -72,7 +72,7 @@ function checkCheckbox() {
   }  
 
   document.getElementById("submit").onclick = function(){
-    fetch("http://192.168.0.107:5000/api/User", {
+    fetch("https://paythehippy-app.azurewebsites.net/api/User", {
         method: "PATCH",
         headers: { 'Authorization': `Bearer ${session.accessToken}`,
             "Content-type": "application/json; charset=UTF-8" },
